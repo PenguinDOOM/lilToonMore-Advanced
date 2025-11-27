@@ -5,7 +5,7 @@
     "url": "https://github.com/PenguinDOOM/lilToonMore/blob/master/vpm.json",
     "packages":
     {
-        "jp.lilxyzw.liltoon":
+        "jp.penguin.liltoonmore":
         {
             "versions":
             {
@@ -34,7 +34,7 @@
                     {
                         "Assets\\lilToonMore" : "2d67ded333893654ca23a5a37c59dfb2"
                     },
-                    "zipSHA256": "ecb8fe038f05b73217513d9160f410479b7722426f653e983f630169b1c54474"
+                    "zipSHA256": "87c15bf403bacada9b56a78efb1e05cba8c7bf275db867f07557d5139f144d7a"
                 }
             }
         }

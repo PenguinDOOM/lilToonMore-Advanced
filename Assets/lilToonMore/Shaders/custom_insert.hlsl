@@ -1,11 +1,22 @@
 #include "custom_function.hlsl"
 
+#define BEFORE_PARALLAX \
+    if(_UseWarp && _UseWarpUVMain) warp(fd.uvMain); \
+    if(_UseWarp && _UseWarpUV0) warp(fd.uv0); \
+    if(_UseWarp && _UseWarpUV1) warp(fd.uv1); \
+    if(_UseWarp && _UseWarpUV2) warp(fd.uv2); \
+    if(_UseWarp && _UseWarpUV3) warp(fd.uv3); \
+    if(_UseWarp && _UseWarpUVMat) warp(fd.uvMat); \
+    if(_UseWarp && _UseWarpUVRim) warp(fd.uvRim);
+
 #if !defined(OVERRIDE_MAIN)
     #define OVERRIDE_MAIN \
+        float2 bkuvMain = fd.uvMain; \
         if(_UseWarp && _UseWarpMain1st) warp(fd.uvMain); \
         LIL_GET_MAIN_TEX \
         LIL_APPLY_MAIN_TONECORRECTION \
-        fd.col *= _Color;
+        fd.col *= _Color; \
+        fd.uvMain = bkuvMain;
 #endif
 
 #if !defined(OVERRIDE_NORMAL_2ND)

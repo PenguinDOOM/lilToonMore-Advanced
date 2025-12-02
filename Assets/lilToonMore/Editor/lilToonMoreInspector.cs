@@ -191,13 +191,20 @@ namespace lilToon
             "_WarpSmallFreqY",
             "_WarpSmallSpeedX",
             "_WarpSmallSpeedY",
+            "_UseWarpUVMain",
+            "_UseWarpUV0",
+            "_UseWarpUV1",
+            "_UseWarpUV2",
+            "_UseWarpUV3",
+            "_UseWarpUVMat",
+            "_UseWarpUVRim",
             "_UseWarpMain1st",
             "_UseWarpMain2nd",
             "_UseWarpMain3rd",
             "_UseWarpMain4th",
             "_UseWarpMain5th",
             "_UseWarpMain6th",
-            "_WarpReplaceRefract"
+            "_WarpReplaceRefract",
         };
 
         private MaterialProperty useMain4thTex;
@@ -354,6 +361,13 @@ namespace lilToon
         private MaterialProperty warpSmallFreqY;
         private MaterialProperty warpSmallSpeedX;
         private MaterialProperty warpSmallSpeedY;
+        private MaterialProperty useWarpUVMain;
+        private MaterialProperty useWarpUV0;
+        private MaterialProperty useWarpUV1;
+        private MaterialProperty useWarpUV2;
+        private MaterialProperty useWarpUV3;
+        private MaterialProperty useWarpUVMat;
+        private MaterialProperty useWarpUVRim;
         private MaterialProperty useWarpMain1st;
         private MaterialProperty useWarpMain2nd;
         private MaterialProperty useWarpMain3rd;
@@ -689,6 +703,13 @@ namespace lilToon
             warpSmallFreqY = FindProperty("_WarpSmallFreqY", props);
             warpSmallSpeedX = FindProperty("_WarpSmallSpeedX", props);
             warpSmallSpeedY = FindProperty("_WarpSmallSpeedY", props);
+            useWarpUVMain = FindProperty("_UseWarpUVMain", props);
+            useWarpUV0 = FindProperty("_UseWarpUV0", props);
+            useWarpUV1 = FindProperty("_UseWarpUV1", props);
+            useWarpUV2 = FindProperty("_UseWarpUV2", props);
+            useWarpUV3 = FindProperty("_UseWarpUV3", props);
+            useWarpUVMat = FindProperty("_UseWarpUVMat", props);
+            useWarpUVRim = FindProperty("_UseWarpUVRim", props);
             useWarpMain1st = FindProperty("_UseWarpMain1st", props);
             useWarpMain2nd = FindProperty("_UseWarpMain2nd", props);
             useWarpMain3rd = FindProperty("_UseWarpMain3rd", props);
@@ -1118,6 +1139,15 @@ namespace lilToon
                             lilEditorGUI.LocalizedProperty(m_MaterialEditor, warpSmallFreqY);
                             lilEditorGUI.LocalizedProperty(m_MaterialEditor, warpSmallSpeedX);
                             lilEditorGUI.LocalizedProperty(m_MaterialEditor, warpSmallSpeedY);
+                        lilEditorGUI.DrawLine();
+                            lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpUVMain);
+                            lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpUV0);
+                            lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpUV1);
+                            lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpUV2);
+                            lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpUV3);
+                            lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpUVMat);
+                            lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpUVRim);
+                            GUILayout.Label("Notice\nMainUV and UV 0 warp almost everything.\nIf you want to warp only each main color, use the main color warping below.");
                         lilEditorGUI.DrawLine();
                             lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpMain1st);
                             lilEditorGUI.LocalizedProperty(m_MaterialEditor, useWarpMain2nd);

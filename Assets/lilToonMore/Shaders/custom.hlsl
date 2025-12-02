@@ -170,6 +170,13 @@
     float   _WarpSmallSpeedX; \
     float   _WarpSmallSpeedY; \
     bool    _UseWarp; \
+    bool    _UseWarpUVMain; \
+    bool    _UseWarpUV0; \
+    bool    _UseWarpUV1; \
+    bool    _UseWarpUV2; \
+    bool    _UseWarpUV3; \
+    bool    _UseWarpUVMat; \
+    bool    _UseWarpUVRim; \
     bool    _UseWarpMain1st; \
     bool    _UseWarpMain2nd; \
     bool    _UseWarpMain3rd; \

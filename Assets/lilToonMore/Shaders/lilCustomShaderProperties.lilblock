@@ -173,7 +173,14 @@
                         _WarpSmallFreqY                             ("Small Warp Freq Y", Float) = 25
                         _WarpSmallSpeedX                            ("Small Warp Speed X", Float) = 3
                         _WarpSmallSpeedY                            ("Small Warp Speed Y", Float) = 2.8
-        [lilToggle]     _UseWarpMain1st                             ("Main UV Warping", Int) = 0
+        [lilToggle]     _UseWarpUVMain                              ("Main UV Warping", Int) = 0
+        [lilToggle]     _UseWarpUV0                                 ("UV 0 Warping", Int) = 0
+        [lilToggle]     _UseWarpUV1                                 ("UV 1 Warping", Int) = 0
+        [lilToggle]     _UseWarpUV2                                 ("UV 2 Warping", Int) = 0
+        [lilToggle]     _UseWarpUV3                                 ("UV 3 Warping", Int) = 0
+        [lilToggle]     _UseWarpUVMat                               ("MatCap UV Warping", Int) = 0
+        [lilToggle]     _UseWarpUVRim                               ("Rim UV Warping", Int) = 0
+        [lilToggle]     _UseWarpMain1st                             ("Main Color 1st Warping", Int) = 0
         [lilToggle]     _UseWarpMain2nd                             ("Main Color 2nd Warping", Int) = 0
         [lilToggle]     _UseWarpMain3rd                             ("Main Color 3rd Warping", Int) = 0
         [lilToggle]     _UseWarpMain4th                             ("Main Color 4th Warping", Int) = 0

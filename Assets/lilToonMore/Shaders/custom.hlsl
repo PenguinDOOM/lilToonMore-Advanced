@@ -95,7 +95,6 @@
     float4  _MatCap3rdTex_ST; \
     float4  _MatCap3rdBlendMask_ST; \
     float4  _MatCap3rdBlendUV1; \
-    float4  _MatCap3rdBumpMap_ST; \
     float   _MatCap3rdBlend; \
     float   _MatCap3rdEnableLighting; \
     float   _MatCap3rdShadowMask; \
@@ -103,21 +102,18 @@
     float   _MatCap3rdBackfaceMask; \
     float   _MatCap3rdLod; \
     float   _MatCap3rdNormalStrength; \
-    float   _MatCap3rdBumpScale; \
     float   _MatCap3rdMainStrength; \
     uint    _MatCap3rdBlendMode; \
     bool    _UseMatCap3rd; \
     bool    _MatCap3rdApplyTransparency; \
     bool    _MatCap3rdPerspective; \
     bool    _MatCap3rdZRotCancel; \
-    bool    _MatCap3rdCustomNormal; \
     bool    _Anisotropy2MatCap3rd; \
     
     float4  _MatCap4thColor; \
     float4  _MatCap4thTex_ST; \
     float4  _MatCap4thBlendMask_ST; \
     float4  _MatCap4thBlendUV1; \
-    float4  _MatCap4thBumpMap_ST; \
     float   _MatCap4thBlend; \
     float   _MatCap4thEnableLighting; \
     float   _MatCap4thShadowMask; \
@@ -125,14 +121,12 @@
     float   _MatCap4thBackfaceMask; \
     float   _MatCap4thLod; \
     float   _MatCap4thNormalStrength; \
-    float   _MatCap4thBumpScale; \
     float   _MatCap4thMainStrength; \
     uint    _MatCap4thBlendMode; \
     bool    _UseMatCap4th; \
     bool    _MatCap4thApplyTransparency; \
     bool    _MatCap4thPerspective; \
     bool    _MatCap4thZRotCancel; \
-    bool    _MatCap4thCustomNormal; \
     bool    _Anisotropy2MatCap4th; \
     
     float4  _Glitter2ndColor; \
@@ -220,11 +214,9 @@
     
     Texture2D _MatCap3rdTex; \
     Texture2D _MatCap3rdBlendMask; \
-    Texture2D _MatCap3rdBumpMap; \
     
     Texture2D _MatCap4thTex; \
     Texture2D _MatCap4thBlendMask; \
-    Texture2D _MatCap4thBumpMap; \
     
     Texture2D _Glitter2ndColorTex; \
     Texture2D _Glitter2ndShapeTex; \

@@ -339,13 +339,6 @@ void lilGetMatCap3rd(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
         float3 N = matcap3rdN;
         
         N = lerp(fd.origN, matcap3rdN, _MatCap3rdNormalStrength);
-        if(_MatCap3rdCustomNormal)
-        {
-            float4 normalTex = LIL_SAMPLE_2D_ST(_MatCap3rdBumpMap, samp, fd.uvMain);
-            float3 normalmap = lilUnpackNormalScale(normalTex, _MatCap3rdBumpScale);
-            N = normalize(mul(normalmap, fd.TBN));
-            N = fd.facing < (_FlipNormal-1.0) ? -N : N;
-        }
 
         // UV
         float2 mat3rdUV = lilCalcMatCapUV(fd.uv1, N, fd.V, fd.headV, _MatCap3rdTex_ST, _MatCap3rdBlendUV1.xy, _MatCap3rdZRotCancel, _MatCap3rdPerspective, _MatCap3rdVRParallaxStrength);
@@ -382,13 +375,6 @@ void lilGetMatCap4th(inout lilFragData fd LIL_SAMP_IN_FUNC(samp)) // Opaque only
         float3 N = matcap4thN;
         
         N = lerp(fd.origN, matcap4thN, _MatCap4thNormalStrength);
-        if(_MatCap4thCustomNormal)
-        {
-            float4 normalTex = LIL_SAMPLE_2D_ST(_MatCap4thBumpMap, samp, fd.uvMain);
-            float3 normalmap = lilUnpackNormalScale(normalTex, _MatCap4thBumpScale);
-            N = normalize(mul(normalmap, fd.TBN));
-            N = fd.facing < (_FlipNormal-1.0) ? -N : N;
-        }
 
         // UV
         float2 mat4thUV = lilCalcMatCapUV(fd.uv1, N, fd.V, fd.headV, _MatCap4thTex_ST, _MatCap4thBlendUV1.xy, _MatCap4thZRotCancel, _MatCap4thPerspective, _MatCap4thVRParallaxStrength);

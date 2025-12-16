@@ -123,9 +123,6 @@ namespace lilToon
             "_MatCap3rdBlendMode",
             "_MatCap3rdApplyTransparency",
             "_MatCap3rdNormalStrength",
-            "_MatCap3rdCustomNormal",
-            "_MatCap3rdBumpMap",
-            "_MatCap3rdBumpScale",
             "_Anisotropy2MatCap3rd"
         };
         
@@ -147,9 +144,6 @@ namespace lilToon
             "_MatCap4thBlendMode",
             "_MatCap4thApplyTransparency",
             "_MatCap4thNormalStrength",
-            "_MatCap4thCustomNormal",
-            "_MatCap4thBumpMap",
-            "_MatCap4thBumpScale",
             "_Anisotropy2MatCap4th"
         };
         
@@ -318,9 +312,6 @@ namespace lilToon
         private MaterialProperty matCap3rdBlendMode;
         private MaterialProperty matCap3rdApplyTransparency;
         private MaterialProperty matCap3rdNormalStrength;
-        private MaterialProperty matCap3rdCustomNormal;
-        private MaterialProperty matCap3rdBumpMap;
-        private MaterialProperty matCap3rdBumpScale;
         private MaterialProperty anisotropy2MatCap3rd;
 
         private MaterialProperty useMatCap4th;
@@ -340,9 +331,6 @@ namespace lilToon
         private MaterialProperty matCap4thBlendMode;
         private MaterialProperty matCap4thApplyTransparency;
         private MaterialProperty matCap4thNormalStrength;
-        private MaterialProperty matCap4thCustomNormal;
-        private MaterialProperty matCap4thBumpMap;
-        private MaterialProperty matCap4thBumpScale;
         private MaterialProperty anisotropy2MatCap4th;
 
         private MaterialProperty useGlitter2nd;
@@ -675,9 +663,6 @@ namespace lilToon
             matCap3rdBlendMode = FindProperty("_MatCap3rdBlendMode", props);
             matCap3rdApplyTransparency = FindProperty("_MatCap3rdApplyTransparency", props);
             matCap3rdNormalStrength = FindProperty("_MatCap3rdNormalStrength", props);
-            matCap3rdCustomNormal = FindProperty("_MatCap3rdCustomNormal", props);
-            matCap3rdBumpMap = FindProperty("_MatCap3rdBumpMap", props);
-            matCap3rdBumpScale = FindProperty("_MatCap3rdBumpScale", props);
             anisotropy2MatCap3rd = FindProperty("_Anisotropy2MatCap3rd", props);
 
             useMatCap4th = FindProperty("_UseMatCap4th", props);
@@ -697,9 +682,6 @@ namespace lilToon
             matCap4thBlendMode = FindProperty("_MatCap4thBlendMode", props);
             matCap4thApplyTransparency = FindProperty("_MatCap4thApplyTransparency", props);
             matCap4thNormalStrength = FindProperty("_MatCap4thNormalStrength", props);
-            matCap4thCustomNormal = FindProperty("_MatCap4thCustomNormal", props);
-            matCap4thBumpMap = FindProperty("_MatCap4thBumpMap", props);
-            matCap4thBumpScale = FindProperty("_MatCap4thBumpScale", props);
             anisotropy2MatCap4th = FindProperty("_Anisotropy2MatCap4th", props);
 
             useGlitter2nd = FindProperty("_UseGlitter2nd", props);
@@ -1032,12 +1014,6 @@ namespace lilToon
                                     matCap3rdEnableLighting.floatValue = 0.0f;
                                 }
                                 if(isTransparent) lilEditorGUI.LocalizedProperty(m_MaterialEditor, matCap3rdApplyTransparency);
-                            lilEditorGUI.DrawLine();
-                                lilEditorGUI.LocalizedProperty(m_MaterialEditor, matCap3rdCustomNormal);
-                                if(matCap3rdCustomNormal.floatValue == 1)
-                                {
-                                    lilEditorGUI.TextureGUI(m_MaterialEditor, false, ref ltmedSet.isShowMatCap3rdBumpMap, normalMapContent, matCap3rdBumpMap, matCap3rdBumpScale);
-                                }
                             lilEditorGUI.DrawLine();
                                 lilEditorGUI.LocalizedProperty(m_MaterialEditor, anisotropy2MatCap3rd);
                             lilEditorGUI.DrawLine();

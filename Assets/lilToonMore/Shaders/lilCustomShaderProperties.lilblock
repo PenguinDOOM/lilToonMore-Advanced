@@ -105,9 +105,6 @@
         [lilEnum]       _MatCap3rdBlendMode                      ("sBlendModes", Int) = 1
         [lilToggle]     _MatCap3rdApplyTransparency              ("sApplyTransparency", Int) = 1
                         _MatCap3rdNormalStrength                 ("sNormalStrength", Range(0, 1)) = 1.0
-        [lilToggle]     _MatCap3rdCustomNormal                   ("sMatCapCustomNormal", Int) = 0
-        [Normal]        _MatCap3rdBumpMap                        ("Normal Map", 2D) = "bump" {}
-                        _MatCap3rdBumpScale                      ("Scale", Range(-10,10)) = 1
         [lilToggle]     _Anisotropy2MatCap3rd                    ("Use Anisotropy Reflection", Int) = 0
         
         //----------------------------------------------------------------------------------------------------------------------
@@ -129,9 +126,6 @@
         [lilEnum]       _MatCap4thBlendMode                      ("sBlendModes", Int) = 1
         [lilToggle]     _MatCap4thApplyTransparency              ("sApplyTransparency", Int) = 1
                         _MatCap4thNormalStrength                 ("sNormalStrength", Range(0, 1)) = 1.0
-        [lilToggle]     _MatCap4thCustomNormal                   ("sMatCapCustomNormal", Int) = 0
-        [Normal]        _MatCap4thBumpMap                        ("Normal Map", 2D) = "bump" {}
-                        _MatCap4thBumpScale                      ("Scale", Range(-10,10)) = 1
         [lilToggle]     _Anisotropy2MatCap4th                    ("Use Anisotropy Reflection", Int) = 0
 
         //----------------------------------------------------------------------------------------------------------------------

@@ -70,7 +70,7 @@ void warp(inout float2 inuv)
                 color2nd.a *= LIL_SAMPLE_2D(_Main2ndBlendMask, samp, uvBM).r;
             #endif
 
-            #if defined(LIL_FEATURE_Main2ndDissolveMask)
+            /*#if defined(LIL_FEATURE_Main2ndDissolveMask)
                 #define _Main2ndDissolveMaskEnabled true
             #else
                 #define _Main2ndDissolveMaskEnabled false
@@ -108,7 +108,7 @@ void warp(inout float2 inuv)
                         samp
                     );
                 #endif
-            #endif
+            #endif*/
             #if defined(LIL_FEATURE_AUDIOLINK)
                 if(_AudioLink2Main2nd) color2nd.a *= fd.audioLinkValue;
             #endif
@@ -163,7 +163,7 @@ void warp(inout float2 inuv)
                 color3rd.a *= LIL_SAMPLE_2D(_Main3rdBlendMask, samp, uvBM).r;
             #endif
 
-            #if defined(LIL_FEATURE_Main3rdDissolveMask)
+            /*#if defined(LIL_FEATURE_Main3rdDissolveMask)
                 #define _Main3rdDissolveMaskEnabled true
             #else
                 #define _Main3rdDissolveMaskEnabled false
@@ -201,7 +201,7 @@ void warp(inout float2 inuv)
                         samp
                     );
                 #endif
-            #endif
+            #endif*/
             #if defined(LIL_FEATURE_AUDIOLINK)
                 if(_AudioLink2Main3rd) color3rd.a *= fd.audioLinkValue;
             #endif

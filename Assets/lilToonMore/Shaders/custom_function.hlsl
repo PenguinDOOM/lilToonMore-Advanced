@@ -331,7 +331,7 @@ void lilGetMain6th(inout lilFragData fd, inout float4 color6th LIL_SAMP_IN_FUNC(
 }
 
 //MatCap3rd
-void lilGetMatCap3rd(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
+void lilGetMatCap3rd(inout lilFragData fd, in float3 matcap3rdN LIL_SAMP_IN_FUNC(samp))
 {
     if(_UseMatCap3rd)
     {
@@ -367,7 +367,7 @@ void lilGetMatCap3rd(inout lilFragData fd LIL_SAMP_IN_FUNC(samp))
 }
 
 // MatCap4th
-void lilGetMatCap4th(inout lilFragData fd LIL_SAMP_IN_FUNC(samp)) // Opaque only
+void lilGetMatCap4th(inout lilFragData fd, in float3 matcap4thN LIL_SAMP_IN_FUNC(samp)) // Opaque only
 {
     if(_UseMatCap4th)
     {

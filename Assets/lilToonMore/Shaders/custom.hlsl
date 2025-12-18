@@ -420,6 +420,3 @@
 // uint     renderingLayers         light layer of object (for URP / HDRP)
 // uint     featureFlags            feature flags (for HDRP)
 // uint2    tileIndex               tile index (for HDRP)
-
-float3 matcap3rdN = 0.0;
-float3 matcap4thN = 0.0;

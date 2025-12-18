@@ -57,6 +57,10 @@
     #endif
 #endif
 
+#define BEFORE_ANISOTROPY \
+    float3 matcap3rdN = 0.0; \
+    float3 matcap4thN = 0.0;
+
 #if !defined(OVERRIDE_ANISOTROPY)
     #if defined(LIL_FEATURE_AnisotropyTangentMap)
         #define LIL_SAMPLE_AnisotropyTangentMap anisoTangentMap = LIL_SAMPLE_2D_ST(_AnisotropyTangentMap, sampler_MainTex, fd.uvMain)
@@ -69,7 +73,7 @@
     #else
         #define LIL_SAMPLE_AnisotropyScaleMask
     #endif
-
+    
     #define OVERRIDE_ANISOTROPY \
         if(_UseAnisotropy) \
         { \
@@ -153,12 +157,12 @@
     #if LIL_RENDER != 0
         #define OVERRIDE_MATCAP_2ND \
             lilGetMatCap2nd(fd LIL_SAMP_IN(sampler_MainTex)); \
-            lilGetMatCap3rd(fd LIL_SAMP_IN(sampler_MainTex));
+            lilGetMatCap3rd(fd, matcap3rdN LIL_SAMP_IN(sampler_MainTex));
     #else
         #define OVERRIDE_MATCAP_2ND \
             lilGetMatCap2nd(fd LIL_SAMP_IN(sampler_MainTex)); \
-            lilGetMatCap3rd(fd LIL_SAMP_IN(sampler_MainTex)); \
-            lilGetMatCap4th(fd LIL_SAMP_IN(sampler_MainTex));
+            lilGetMatCap3rd(fd, matcap3rdN LIL_SAMP_IN(sampler_MainTex)); \
+            lilGetMatCap4th(fd, matcap4thN LIL_SAMP_IN(sampler_MainTex));
     #endif
 #endif
 

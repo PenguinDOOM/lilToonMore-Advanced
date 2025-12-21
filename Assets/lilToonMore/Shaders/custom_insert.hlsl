@@ -57,6 +57,36 @@
     #endif
 #endif
 
+#if !defined(OVERRIDE_MAIN2ND)
+    #define OVERRIDE_MAIN2ND \
+        lilGetMain2ndMore(fd, color2nd, main2ndDissolveAlpha LIL_SAMP_IN(sampler_MainTex));
+#endif
+
+#if !defined(OVERRIDE_MAIN3RD)
+    #define OVERRIDE_MAIN3RD \
+        lilGetMain3rdMore(fd, color3rd, main3rdDissolveAlpha LIL_SAMP_IN(sampler_MainTex));
+#endif
+
+#if !defined(BEFORE_ALPHAMASK)
+    #if LIL_RENDER != 0
+        #define BEFORE_ALPHAMASK \
+            float4 color4th = 1.0; \
+            float4 color5th = 1.0; \
+            lilGetMain4th(fd, color4th LIL_SAMP_IN(sampler_MainTex)); \
+            lilGetMain5th(fd, color5th LIL_SAMP_IN(sampler_MainTex)); \
+            lilMoleDrower(fd LIL_SAMP_IN(sampler_MainTex));
+    #else
+        #define BEFORE_ALPHAMASK \
+            float4 color4th = 1.0; \
+            float4 color5th = 1.0; \
+            float4 color6th = 1.0; \
+            lilGetMain4th(fd, color4th LIL_SAMP_IN(sampler_MainTex)); \
+            lilGetMain5th(fd, color5th LIL_SAMP_IN(sampler_MainTex)); \
+            lilGetMain6th(fd, color6th LIL_SAMP_IN(sampler_MainTex)); \
+            lilMoleDrower(fd LIL_SAMP_IN(sampler_MainTex));
+    #endif
+#endif
+
 #define BEFORE_ANISOTROPY \
     float3 matcap3rdN = 0.0; \
     float3 matcap4thN = 0.0;
@@ -92,36 +122,6 @@
             if(_Anisotropy2MatCap4th)   matcap4thN   = anisoNormalWS; \
             if(_Anisotropy2Reflection)  fd.perceptualRoughness = saturate(1.2 - abs(fd.anisotropy)); \
         }
-#endif
-
-#if !defined(OVERRIDE_MAIN2ND)
-    #define OVERRIDE_MAIN2ND \
-        lilGetMain2ndMore(fd, color2nd, main2ndDissolveAlpha LIL_SAMP_IN(sampler_MainTex));
-#endif
-
-#if !defined(OVERRIDE_MAIN3RD)
-    #define OVERRIDE_MAIN3RD \
-        lilGetMain3rdMore(fd, color3rd, main3rdDissolveAlpha LIL_SAMP_IN(sampler_MainTex));
-#endif
-
-#if !defined(BEFORE_ALPHAMASK)
-    #if LIL_RENDER != 0
-        #define BEFORE_ALPHAMASK \
-            float4 color4th = 1.0; \
-            float4 color5th = 1.0; \
-            lilGetMain4th(fd, color4th LIL_SAMP_IN(sampler_MainTex)); \
-            lilGetMain5th(fd, color5th LIL_SAMP_IN(sampler_MainTex)); \
-            lilMoleDrower(fd LIL_SAMP_IN(sampler_MainTex));
-    #else
-        #define BEFORE_ALPHAMASK \
-            float4 color4th = 1.0; \
-            float4 color5th = 1.0; \
-            float4 color6th = 1.0; \
-            lilGetMain4th(fd, color4th LIL_SAMP_IN(sampler_MainTex)); \
-            lilGetMain5th(fd, color5th LIL_SAMP_IN(sampler_MainTex)); \
-            lilGetMain6th(fd, color6th LIL_SAMP_IN(sampler_MainTex)); \
-            lilMoleDrower(fd LIL_SAMP_IN(sampler_MainTex));
-    #endif
 #endif
 
 #if !defined(LIL_OUTLINE)

@@ -123,6 +123,13 @@
                 fd.col.a = clamp(fd.col.a, minA, maxA); \
             } \
         }
+#elif LIL_RENDER == 1
+    #define BEFORE_ALPHAMASK \
+        float4 color4th = 1.0; \
+        float4 color5th = 1.0; \
+        lilGetMain4th(fd, color4th LIL_SAMP_IN(sampler_MainTex)); \
+        lilGetMain5th(fd, color5th LIL_SAMP_IN(sampler_MainTex)); \
+        lilMoleDrower(fd LIL_SAMP_IN(sampler_MainTex));
 #else
     #define BEFORE_ALPHAMASK \
         float4 color4th = 1.0; \
@@ -141,16 +148,30 @@
         #define LIL_SAMPLE_AlphaMask
     #endif
 
-    #define OVERRIDE_ALPHAMASK \
-        if(_AlphaMaskMode) \
-        { \
-            alphaMask = saturate(alphaMask * _AlphaMaskScale + _AlphaMaskValue); \
-            if(_UseLightBasedAlpha && _LightBasedAlphaForceAlphaMask) alphaMask *= maskedValueFactor; \
-            if(_AlphaMaskMode == 1) fd.col.a = alphaMask; \
-            if(_AlphaMaskMode == 2) fd.col.a = fd.col.a * alphaMask; \
-            if(_AlphaMaskMode == 3) fd.col.a = saturate(fd.col.a + alphaMask); \
-            if(_AlphaMaskMode == 4) fd.col.a = saturate(fd.col.a - alphaMask); \
-        }
+    #if LIL_RENDER == 2
+        #define OVERRIDE_ALPHAMASK \
+            if(_AlphaMaskMode) \
+            { \
+                alphaMask = saturate(alphaMask * _AlphaMaskScale + _AlphaMaskValue); \
+                if(_UseLightBasedAlpha && _LightBasedAlphaForceAlphaMask) alphaMask *= maskedValueFactor; \
+                if(_AlphaMaskMode == 1) fd.col.a = alphaMask; \
+                if(_AlphaMaskMode == 2) fd.col.a = fd.col.a * alphaMask; \
+                if(_AlphaMaskMode == 3) fd.col.a = saturate(fd.col.a + alphaMask); \
+                if(_AlphaMaskMode == 4) fd.col.a = saturate(fd.col.a - alphaMask); \
+            }
+    #elif LIL_RENDER == 1
+        #define OVERRIDE_ALPHAMASK \
+            if(_AlphaMaskMode) \
+            { \
+                float alphaMask = 1.0; \
+                LIL_SAMPLE_AlphaMask; \
+                alphaMask = saturate(alphaMask * _AlphaMaskScale + _AlphaMaskValue); \
+                if(_AlphaMaskMode == 1) fd.col.a = alphaMask; \
+                if(_AlphaMaskMode == 2) fd.col.a = fd.col.a * alphaMask; \
+                if(_AlphaMaskMode == 3) fd.col.a = saturate(fd.col.a + alphaMask); \
+                if(_AlphaMaskMode == 4) fd.col.a = saturate(fd.col.a - alphaMask); \
+            }
+    #endif
 #endif
 
 #define BEFORE_ANISOTROPY \

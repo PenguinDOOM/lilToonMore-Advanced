@@ -1124,9 +1124,9 @@ namespace lilToon
                     EditorGUILayout.EndVertical();
                 }
                 
-                if(renderingModeBuf == RenderingMode.Opaque)
+                if(renderingModeBuf == RenderingMode.Opaque || renderingModeBuf == RenderingMode.Cutout)
                 {
-                    GUILayout.Label(GetLoc("When using Light Based Alpha, the rendering mode must be anything other than opaque"), wrapLabel);
+                    GUILayout.Label(GetLoc("When using Light Based Alpha, the rendering mode must be transparent"), wrapLabel);
                 }
                 else
                 {

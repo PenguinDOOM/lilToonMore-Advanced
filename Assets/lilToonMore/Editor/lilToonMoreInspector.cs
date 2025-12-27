@@ -540,6 +540,7 @@ namespace lilToon
         private MaterialProperty alphaMask;
         private MaterialProperty alphaMaskScale;
         private MaterialProperty alphaMaskValue;
+        private MaterialProperty useParallax;
         private MaterialProperty parallaxMap;
         private MaterialProperty cutoff;
 
@@ -968,6 +969,7 @@ namespace lilToon
             alphaMask                         = FindProperty("_AlphaMask", props);
             alphaMaskScale                    = FindProperty("_AlphaMaskScale", props);
             alphaMaskValue                    = FindProperty("_AlphaMaskValue", props);
+            useParallax                       = FindProperty("_UseParallax", props);
             parallaxMap                       = FindProperty("_ParallaxMap", props);
             cutoff                            = FindProperty("_Cutoff", props);
             
@@ -1146,6 +1148,10 @@ namespace lilToon
                 if(renderingModeBuf == RenderingMode.Opaque || renderingModeBuf == RenderingMode.Cutout)
                 {
                     GUILayout.Label(GetLoc("When using Light Based Alpha, the rendering mode must be transparent"), wrapLabel);
+                }
+                else if(useParallax.floatValue == 1)
+                { 
+                    GUILayout.Label(GetLoc("When using Light Based Alpha, turn off Parallax"), wrapLabel);
                 }
                 else
                 {

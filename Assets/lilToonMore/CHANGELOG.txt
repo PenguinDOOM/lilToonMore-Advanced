@@ -1,4 +1,10 @@
 2025/12/27
+Ver. 3.1.0
+Added light threshold setting for B channel
+Added the code I forgot to add in Ver. 3.0.0
+Remove redundant code
+
+2025/12/27
 Ver. 3.0.0
 Rewritten Light Based Alpha
 - Made it exclusive with the disparity map and reused the mask of the disparity map

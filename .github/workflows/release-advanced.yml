@@ -270,7 +270,7 @@ jobs:
           source: ${{ github.workspace }}/
           dest: './dist'
           destfilename: '${{ env.PACKAGE_NAME }}-${{ env.UPDATE_MAJOR }}.${{ env.UPDATE_MINOR }}.${{ env.UPDATE_PATCH }}'
-          exclude: '.git .github .gitattributes .gitignore dist'
+          exclude: '.git .github .gitattributes .gitignore dist ./update_trigger.json'
           format: zip
           includeRoot: 'false'
       - name: Create GitHub Release

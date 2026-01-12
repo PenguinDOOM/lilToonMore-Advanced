@@ -282,5 +282,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.PAT_FOR_DISPATCH }}
-          repository: ${{ github.repository_owner }}/${{ env.VPM_Repository }}
+          repository: ${{ github.repository_owner }}/${{ env.VPM_REPOSITORY }}
           event-type: update-vpm-advanced

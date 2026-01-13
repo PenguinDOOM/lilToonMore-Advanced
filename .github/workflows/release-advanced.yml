@@ -283,4 +283,5 @@ jobs:
         with:
           token: ${{ secrets.PAT_FOR_DISPATCH }}
           repository: ${{ github.repository_owner }}/${{ env.VPM_REPOSITORY }}
-          event-type: update-vpm-advanced
+          event-type: update-vpm
+          client-payload: '{"packageurl": "https://github.com/${{ github.repository }}/releases/download/${{ env.UPDATE_VERSION }}/${{ env.PACKAGE_NAME }}-${{ env.UPDATE_VERSION }}.zip?"}'

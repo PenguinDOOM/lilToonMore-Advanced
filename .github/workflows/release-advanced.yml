@@ -245,8 +245,9 @@ jobs:
     defaults:
       run:
         shell: bash
-    needs: [extract-semantic-version, update]
+    needs: [verify-commit-signature, extract-semantic-version, update]
     env:
+      VCS: ${{ needs.verify-commit-signature.outputs.vcs }}
       CURRENT_VERSION: ${{ needs.extract-semantic-version.outputs.current_version }}
       MAJOR: ${{ needs.extract-semantic-version.outputs.major }}
       MINOR: ${{ needs.extract-semantic-version.outputs.minor }}
@@ -301,4 +302,4 @@ jobs:
           token: ${{ secrets.PAT_FOR_DISPATCH }}
           repository: ${{ github.repository_owner }}/${{ env.VPM_REPOSITORY }}
           event-type: update-vpm
-          client-payload: '{"packageurl": "https://github.com/${{ github.repository }}/releases/download/${{ env.UPDATE_VERSION }}/${{ env.PACKAGE_NAME }}-${{ env.UPDATE_VERSION }}.zip?"}'
+          client-payload: '{"packageurl": "https://github.com/${{ github.repository }}/releases/download/${{ env.UPDATE_VERSION }}/${{ env.PACKAGE_NAME }}-${{ env.UPDATE_VERSION }}.zip?", "verify": "${{ env.VCS }}"}'
